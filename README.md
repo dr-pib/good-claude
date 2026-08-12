@@ -20,17 +20,25 @@ not have (projectmem, a git remote, a deploy) are marked as not applying.
 
 ## Install on a machine
 
+One line, from anywhere:
+
 ```sh
-git clone git@github.com:dr-pib/good-claude.git ~/code/good-claude
-mkdir -p ~/.claude/commands
-ln -s ~/code/good-claude/commands/soft-close.md ~/.claude/commands/soft-close.md
-ln -s ~/code/good-claude/commands/hard-close.md ~/.claude/commands/hard-close.md
+cd ~/code && git clone git@github.com:dr-pib/good-claude.git && bash good-claude/install.sh
 ```
+
+Or, if typing that is the annoying part, open Claude Code on that machine and
+say: *clone dr-pib/good-claude and run its install.sh*.
+
+`install.sh` symlinks everything in `commands/` into `~/.claude/commands`. It
+is safe to re-run, works from wherever the repo is cloned, and if a real file
+is already sitting at one of those names it moves it aside to
+`<name>.before-good-claude` rather than destroying it.
 
 Symlinks rather than copies, so editing the file in this repo is the only way
 to change the command and the two cannot drift apart on one machine.
 
-To update everywhere afterward: `git pull` here. That is the whole update.
+To update every command on a machine afterward: `git pull` here. That is the
+whole update.
 
 ## Things worth knowing
 
